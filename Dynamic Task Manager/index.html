@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskboard – Clean & Simple Task Manager</title>
+  <meta name="description" content="A fast, modern, and clean task manager with priorities, categories, and due dates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="app-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Taskboard</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Dark / Light theme toggle -->
+        <button class="nav-btn theme-toggle" id="themeBtn" title="Switch theme" aria-label="Toggle dark mode">
+          <svg class="icon-svg icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-svg icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main class="wrap main-container">
+    
+    <!-- Add Task Card -->
+    <section class="card add-card" aria-label="Create new task">
+      <form id="addForm" autocomplete="off">
+        <div class="input-primary-group">
+          <div class="input-icon-wrap">
+            <svg class="icon-svg text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="titleInput" 
+            class="field-input big" 
+            placeholder="Add a new task..." 
+            maxlength="140" 
+            aria-label="Task title" 
+            required
+          >
+          <button type="button" class="btn-toggle-notes" id="toggleNotesBtn" title="Add notes or description" aria-label="Toggle notes field">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Notes</span>
+          </button>
+        </div>
+
+        <!-- Optional Notes/Description Field -->
+        <div class="notes-expandable" id="notesWrapper" hidden>
+          <textarea 
+            id="descInput" 
+            class="field-input notes-textarea" 
+            placeholder="Add relevant notes or description (optional)..." 
+            rows="2"
+            aria-label="Task description"
+          ></textarea>
+        </div>
+
+        <!-- Controls Row -->
+        <div class="add-controls">
+          <!-- Category Selector -->
+          <div class="control-group">
+            <span class="control-label">Category:</span>
+            <div class="category-pills" role="radiogroup" aria-label="Select category">
+              <label class="cat-pill-label">
+                <input type="radio" name="cat" value="Work" checked>
+                <span class="cat-pill work">
+                  <span class="dot"></span>Work
+                </span>
+              </label>
+              <label class="cat-pill-label">
+                <input type="radio" name="cat" value="Personal">
+                <span class="cat-pill personal">
+                  <span class="dot"></span>Personal
+                </span>
+              </label>
+              <label class="cat-pill-label">
+                <input type="radio" name="cat" value="Study">
+                <span class="cat-pill study">
+                  <span class="dot"></span>Study
+                </span>
+              </label>
+              <label class="cat-pill-label">
+                <input type="radio" name="cat" value="Health">
+                <span class="cat-pill health">
+                  <span class="dot"></span>Health
+                </span>
+              </label>
+              <label class="cat-pill-label">
+                <input type="radio" name="cat" value="Finance">
+                <span class="cat-pill finance">
+                  <span class="dot"></span>Finance
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Priority Selector -->
+          <div class="control-group">
+            <span class="control-label">Priority:</span>
+            <div class="priority-pills" role="radiogroup" aria-label="Select priority">
+              <label class="prio-pill-label">
+                <input type="radio" name="priority" value="high">
+                <span class="prio-pill prio-high" title="High Priority">
+                  <svg class="prio-flag" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/>
+                  </svg>
+                  High
+                </span>
+              </label>
+              <label class="prio-pill-label">
+                <input type="radio" name="priority" value="medium" checked>
+                <span class="prio-pill prio-med" title="Medium Priority">
+                  <svg class="prio-flag" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/>
+                  </svg>
+                  Med
+                </span>
+              </label>
+              <label class="prio-pill-label">
+                <input type="radio" name="priority" value="low">
+                <span class="prio-pill prio-low" title="Low Priority">
+                  <svg class="prio-flag" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/>
+                  </svg>
+                  Low
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Due Date & Submit -->
+          <div class="add-right-cluster">
+            <div class="date-quick-picker">
+              <button type="button" class="btn-quick-date" data-days="0" title="Set to Today">Today</button>
+              <button type="button" class="btn-quick-date" data-days="1" title="Set to Tomorrow">Tomorrow</button>
+              <label class="due-input-wrapper" title="Pick specific due date">
+                <svg class="icon-svg calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <input type="date" id="dueInput" class="field-input date-input" aria-label="Due date">
+              </label>
+            </div>
+
+            <button class="btn btn-primary btn-submit-task" type="submit">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Add Task</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Toolbar: Views, Filters, Search & Sorting -->
+    <section class="toolbar-section" aria-label="Task filters and sorting">
+      <!-- Status View Tabs -->
+      <div class="tabs-group" id="statusFilter" role="tablist" aria-label="Filter by view">
+        <button class="tab-btn active" data-f="all" role="tab" aria-selected="true">
+          <span>All</span>
+          <span class="tab-counter" id="tabCountAll">0</span>
+        </button>
+        <button class="tab-btn" data-f="today" role="tab" aria-selected="false">
+          <span>Today</span>
+          <span class="tab-counter" id="tabCountToday">0</span>
+        </button>
+        <button class="tab-btn" data-f="active" role="tab" aria-selected="false">
+          <span>In Progress</span>
+          <span class="tab-counter" id="tabCountActive">0</span>
+        </button>
+        <button class="tab-btn" data-f="high" role="tab" aria-selected="false">
+          <span>Urgent</span>
+          <span class="tab-counter" id="tabCountHigh">0</span>
+        </button>
+        <button class="tab-btn" data-f="completed" role="tab" aria-selected="false">
+          <span>Done</span>
+          <span class="tab-counter" id="tabCountCompleted">0</span>
+        </button>
+      </div>
+
+      <!-- Secondary Controls: Search, Category, Sorting -->
+      <div class="toolbar-subrow">
+        <!-- Search bar with clear button -->
+        <div class="search-wrap">
+          <svg class="icon-svg search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="search" 
+            id="search" 
+            class="field-input search-input" 
+            placeholder="Search tasks..." 
+            aria-label="Search tasks"
+          >
+          <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" hidden>×</button>
+        </div>
+
+        <!-- Category dropdown filter -->
+        <div class="filter-select-wrap">
+          <select id="catFilter" class="field-select" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="Work">💼 Work</option>
+            <option value="Personal">👤 Personal</option>
+            <option value="Study">📚 Study</option>
+            <option value="Health">🏃 Health</option>
+            <option value="Finance">💰 Finance</option>
+          </select>
+        </div>
+
+        <!-- Sort dropdown -->
+        <div class="filter-select-wrap">
+          <select id="sortSelect" class="field-select" aria-label="Sort tasks">
+            <option value="order">Custom Order</option>
+            <option value="due-asc">Due Date (Earliest)</option>
+            <option value="priority-desc">Priority (Highest)</option>
+            <option value="newest">Recently Added</option>
+            <option value="alpha">Alphabetical (A-Z)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task List Status bar -->
+    <div class="list-status-bar">
+      <span class="count-text" id="count" aria-live="polite">Showing 0 tasks</span>
+      <div class="status-bar-actions">
+        <button class="btn btn-ghost btn-danger-ghost" id="clearDone" title="Remove all completed tasks">Clear Completed</button>
+      </div>
+    </div>
+
+    <!-- The Task List -->
+    <ul class="tasks-list" id="list" aria-label="Tasks list"></ul>
+  </main>
+
+  <!-- Toast Notification Zone -->
+  <div class="toast-zone" id="toasts" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

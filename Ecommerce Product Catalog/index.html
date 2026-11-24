@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumen & Co. – Premium Lifestyle & Everyday Essentials</title>
+  <meta name="description" content="Discover premium audio, precision watches, fine jewelry, tailored clothing, and modern living essentials. Realistic e-commerce storefront with live cart, quick-view, and fast checkout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="wrap top-bar-inner">
+      <p class="top-bar-msg">
+        <span class="badge-pill">Spring 2026 Drop</span>
+        <span>Use code <strong>WELCOME15</strong> for 15% off your order</span>
+        <span class="sep">•</span>
+        <span>Free worldwide express shipping on orders over $75</span>
+      </p>
+      <div class="top-bar-links">
+        <a href="#help" id="topHelpLink">Concierge & FAQ</a>
+        <span class="sep">•</span>
+        <span class="currency-tag">USD ($)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <header class="nav" id="mainNav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="Lumen & Co. Home">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Lumen<small>&nbsp;& Co.</small></span>
+          <span class="brand-tagline">Curated Lifestyle</span>
+        </div>
+      </a>
+
+      <!-- Quick Category Nav Links -->
+      <nav class="nav-links" aria-label="Quick links">
+        <button class="nav-link active" data-cat-nav="All">All</button>
+        <button class="nav-link" data-cat-nav="Electronics">Electronics</button>
+        <button class="nav-link" data-cat-nav="Jewelry">Jewelry & Watches</button>
+        <button class="nav-link" data-cat-nav="Clothing">Apparel</button>
+        <button class="nav-link" data-cat-nav="Lifestyle">Living</button>
+      </nav>
+
+      <!-- Global Search -->
+      <div class="search-box">
+        <label class="search" for="search">
+          <span class="sr">Search products</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="search" placeholder="Search headphones, rings, coats…" autocomplete="off">
+          <button type="button" class="search-clear" id="searchClear" aria-label="Clear search" hidden>✕</button>
+        </label>
+      </div>
+
+      <!-- Action Buttons (Wishlist & Cart) -->
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="wishlistBtn" aria-label="View saved wishlist">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="cart-btn" id="openCart" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Flagship Section -->
+  <section class="hero" id="top">
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="hero-pill">
+          <span class="sparkle">✦</span>
+          <span>Editorial Curation · 2026 Edition</span>
+        </div>
+        <h1>Good design,<br><em>chosen with care.</em></h1>
+        <p>Explore high-fidelity audio, precision timepieces, solid gold jewelry, and tailored apparel. Every piece is engineered for elegance and constructed to last a lifetime.</p>
+        
+        <div class="hero-actions">
+          <a class="btn btn-hero" href="#shop">Explore Catalog</a>
+          <button class="btn btn-hero-secondary" id="heroFeaturedBtn">View Flagship Audio</button>
+        </div>
+
+        <div class="hero-proof">
+          <div class="proof-rating">
+            <span class="stars-gold">★★★★★</span>
+            <strong>4.9 / 5.0</strong>
+          </div>
+          <span class="proof-sep"></span>
+          <div class="proof-stat">
+            <strong>14,200+</strong>
+            <span>Verified Customers</span>
+          </div>
+          <span class="proof-sep"></span>
+          <div class="proof-stat">
+            <strong>Free 2-Day</strong>
+            <span>Express Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="hero-visual" id="heroVisual"></div>
+    </div>
+  </section>
+
+  <!-- Trust Value Propositions Bar -->
+  <section class="trust-bar" aria-label="Store Guarantees">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">📦</div>
+        <div>
+          <h4>Free Express Shipping</h4>
+          <p>On all domestic & global orders over $75</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <h4>2-Year Full Warranty</h4>
+          <p>Complete replacement protection included</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔄</div>
+        <div>
+          <h4>30-Day Risk-Free Trial</h4>
+          <p>Prepaid return label in every package</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <h4>256-Bit Bank Security</h4>
+          <p>Apple Pay, Visa, Mastercard & PayPal</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Storefront Catalog -->
+  <main class="wrap" id="shop">
+    <!-- Catalog Header & Controls -->
+    <div class="catalog-head">
+      <div>
+        <h2 class="section-title">The Collection</h2>
+        <p class="section-sub">Carefully sourced essentials spanning technology, fine jewelry, apparel, and lifestyle.</p>
+      </div>
+      <div class="catalog-live-meta">
+        <span class="count" id="resultCount" aria-live="polite">Showing 24 products</span>
+      </div>
+    </div>
+
+    <!-- Filter & Sort Toolbar -->
+    <div class="toolbar">
+      <!-- Category Tabs -->
+      <div class="cats" id="cats" role="group" aria-label="Filter by category"></div>
+
+      <!-- Secondary Controls (Price, In-Stock, Sort) -->
+      <div class="toolbar-secondary">
+        <label class="ctrl-select" for="priceFilter">
+          <span class="sr">Filter by price</span>
+          <select id="priceFilter">
+            <option value="all">All Prices</option>
+            <option value="under50">Under $50</option>
+            <option value="50-150">$50 – $150</option>
+            <option value="over150">$150 and above</option>
+          </select>
+        </label>
+
+        <label class="ctrl-select" for="sort">
+          <span class="sr">Sort products</span>
+          <select id="sort">
+            <option value="featured">Featured Picks</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Top Rated (★)</option>
+            <option value="discount">Biggest Savings (%)</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- Active Filters & Notice Bar -->
+    <div class="active-filter-bar" id="activeFilterBar" hidden>
+      <span class="filter-label">Active filters:</span>
+      <div class="filter-tags" id="filterTags"></div>
+      <button class="filter-reset-btn" id="clearAllFilters">Reset all filters</button>
+    </div>
+
+    <p class="notice" id="notice" hidden></p>
+
+    <!-- Product Grid -->
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <!-- Brand Guarantee Banner -->
+  <section class="banner-cta">
+    <div class="wrap banner-inner">
+      <div class="banner-text">
+        <span class="tag-small">Craftsmanship Guarantee</span>
+        <h3>Built to endure. Designed to inspire.</h3>
+        <p>Every product in the Lumen & Co. collection undergoes rigorous multi-point quality testing for material durability, environmental impact, and functional perfection.</p>
+      </div>
+      <div class="banner-actions">
+        <a class="btn btn-light" href="#shop">Explore All Items</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Footer -->
+  <footer class="foot">
+    <div class="wrap foot-top">
+      <div class="foot-col foot-brand">
+        <div class="logo">
+          <div class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="brand-name">Lumen<small>&nbsp;& Co.</small></span>
+        </div>
+        <p class="foot-desc">Modern everyday lifestyle & design essentials. Studio-tested audio, solid fine jewelry, tailored clothing, and Scandinavian homeware.</p>
+        <div class="foot-socials">
+          <span class="social-badge">NYC Studio</span>
+          <span class="social-badge">Copenhagen</span>
+          <span class="social-badge">Tokyo</span>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#shop" data-cat-jump="Electronics">High-End Electronics</a></li>
+          <li><a href="#shop" data-cat-jump="Jewelry">Fine Jewelry & Watches</a></li>
+          <li><a href="#shop" data-cat-jump="Clothing">Tailored Apparel & Shoes</a></li>
+          <li><a href="#shop" data-cat-jump="Lifestyle">Living & Interior Design</a></li>
+          <li><a href="#shop" data-cat-jump="All">New Arrivals</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#orderTrack" id="trackOrderLink">Track Your Order</a></li>
+          <li><a href="#shippingInfo" id="shippingPolicyLink">Shipping & Express Delivery</a></li>
+          <li><a href="#returnsInfo" id="returnsPolicyLink">30-Day Free Returns</a></li>
+          <li><a href="#warrantyInfo" id="warrantyPolicyLink">2-Year Warranty Claim</a></li>
+          <li><a href="#contact" id="contactSupportLink">Contact Concierge (24/7)</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-newsletter">
+        <h4>Stay in the Circle</h4>
+        <p>Subscribe for exclusive 15% discount on your first purchase, private drops, and design editorial.</p>
+        <form class="nl-form" id="newsletterForm">
+          <div class="nl-input-wrap">
+            <input type="email" id="nlEmail" placeholder="Enter your email address" required autocomplete="email">
+            <button type="submit" class="btn btn-nl">Join</button>
+          </div>
+          <p class="nl-note">No spam ever. Unsubscribe anytime in one click.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="wrap foot-bottom">
+      <div class="foot-legal">
+        <p>© 2026 Lumen & Co. All rights reserved. Realistic storefront simulation for demo and portfolio presentation.</p>
+      </div>
+      <div class="foot-payments" aria-label="Accepted payment methods">
+        <span class="pay-pill">Visa</span>
+        <span class="pay-pill">Mastercard</span>
+        <span class="pay-pill">Amex</span>
+        <span class="pay-pill">Apple Pay</span>
+        <span class="pay-pill">Google Pay</span>
+        <span class="pay-pill">PayPal</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Out Shopping Cart Drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping Cart" inert>
+    <div class="drawer-head">
+      <div>
+        <h2>Your Cart <span id="drawerCount"></span></h2>
+        <p class="drawer-sub">Fast & secure 256-bit encrypted checkout</p>
+      </div>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="ship" id="shipBox"></div>
+
+    <!-- Cart List -->
+    <ul class="cart-list" id="cartList"></ul>
+
+    <!-- Cart Drawer Footer -->
+    <div class="drawer-foot" id="drawerFoot">
+      <!-- Promo Code Box -->
+      <div class="promo-box">
+        <form class="promo-form" id="promoForm">
+          <input type="text" id="promoInput" placeholder="Promo code (try WELCOME15)" autocomplete="off">
+          <button type="submit" class="btn-promo" id="applyPromoBtn">Apply</button>
+        </form>
+        <div class="promo-status" id="promoStatus" hidden></div>
+      </div>
+
+      <!-- Financial Totals -->
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="subtotal">$0.00</dd></div>
+        <div id="discountRow" hidden class="discount-row"><dt>Discount (<span id="discountTag"></span>)</dt><dd id="discount">-$0.00</dd></div>
+        <div><dt>Estimated Tax (8%)</dt><dd id="tax">$0.00</dd></div>
+        <div><dt>Shipping</dt><dd id="shipping">$0.00</dd></div>
+        <div class="grand"><dt>Estimated Total</dt><dd id="total">$0.00</dd></div>
+      </dl>
+
+      <div class="drawer-delivery-hint" id="deliveryHint">
+        <span>📦 Estimated Delivery: <strong id="estDateText"></strong></span>
+      </div>
+
+      <button class="btn block btn-checkout" id="checkoutBtn">Proceed to Checkout</button>
+      <div class="drawer-sub-links">
+        <button class="link" id="clearCart">Clear cart</button>
+        <span class="sep">•</span>
+        <a class="link" href="#shop" id="continueShoppingCart">Continue shopping</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Quick View Product Dialog -->
+  <dialog id="viewDialog" class="dlg dlg-view" aria-label="Product quick view"></dialog>
+
+  <!-- Realistic Multi-Step Checkout Dialog -->
+  <dialog id="checkoutDialog" class="dlg dlg-co" aria-label="Simulated Checkout"></dialog>
+
+  <!-- Wishlist Dialog -->
+  <dialog id="wishlistDialog" class="dlg dlg-wishlist" aria-label="Your Wishlist"></dialog>
+
+  <!-- Generic Info / Policy Dialog -->
+  <dialog id="infoDialog" class="dlg dlg-info" aria-label="Store Information"></dialog>
+
+  <!-- Floating Toast Notifications -->
+  <div class="toast-zone" id="toasts" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
